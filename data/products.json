@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Wireless Mouse",
+    "slug": "wireless-mouse",
+    "description": "A smooth and comfortable wireless mouse.",
+    "price": 800,
+    "category": "Electronics",
+    "inventory": 4,
+    "lastUpdated": "2025-10-31T04:54:41.844Z"
+  },
+  {
+    "id": "2",
+    "name": "Mechanical Keyboard",
+    "slug": "mechanical-keyboard",
+    "description": "Tactile keys for fast and precise typing.",
+    "price": 2499,
+    "category": "Electronics",
+    "inventory": 8,
+    "lastUpdated": "2025-10-29T12:00:00Z"
+  },
+  {
+    "id": "3",
+    "name": "USB-C Hub",
+    "slug": "usb-c-hub",
+    "description": "Connect multiple devices with this powerful hub.",
+    "price": 1499,
+    "category": "Accessories",
+    "inventory": 15,
+    "lastUpdated": "2025-10-29T12:00:00Z"
+  },
+  {
+    "id": "1761824276003",
+    "name": "lap",
+    "slug": "si56",
+    "description": "low",
+    "price": 555550,
+    "category": "65",
+    "inventory": 50,
+    "lastUpdated": "2025-10-30T11:37:56.003Z"
+  }
+]
