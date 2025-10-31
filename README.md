@@ -1,40 +1,61 @@
-# 🛍️ E-commerce App (Next.js 16 + TypeScript)
+# 🛍️ E-commerce App (Next.js 16 – Full Rendering Demo)
 
-A small **e-commerce-style web application** built using **Next.js 16**, demonstrating different **rendering strategies (SSG, ISR, SSR, CSR)** and **API integration** with a local JSON data source.
-
----
-
-## 🚀 Project Overview
-
-This app displays products, allows viewing product details, and lets an admin add or update products via an admin panel.  
-It also demonstrates **Next.js App Router**, **Server Components**, and **API Routes**.
+**Author:** Jeevlin Princess D  
+**Date:** October 2025  
+**Tech Stack:** Next.js (App Router), TypeScript, JSON data source, Tailwind CSS  
 
 ---
 
-## 🧱 Features Implemented
+## 📖 Overview
 
-| Page | Route | Rendering Type | Description |
-|------|--------|----------------|--------------|
-| 🏠 Home | `/` | **SSG** (Static Site Generation) | Displays a product list with client-side search |
-| 📦 Product Detail | `/products/[slug]` | **ISR** (Incremental Static Regeneration)** | Fetches product details and revalidates every 60s |
-| 📊 Dashboard | `/dashboard` | **SSR** (Server-Side Rendering) | Shows real-time inventory stats and low-stock alerts |
-| ⚙️ Admin Panel | `/admin` | **CSR** (Client-Side Rendering) | Lets admin add or update products dynamically |
-| 💡 Recommendations | `/recommendations` | **Server Components** | Server-rendered recommendations with a client button |
-| 🔗 API Routes | `/api/products`, `/api/products/[slug]`, `/api/products/update/[id]` | **Node.js API Routes** | Handles CRUD operations securely |
+This project is a small **E-commerce-style web application** built with **Next.js 16**.  
+It demonstrates different rendering strategies — **SSG, ISR, SSR, and CSR** — along with **Next.js API routes** and **basic admin CRUD features**.
 
----
-
-## 🗄️ Data Source
-
-Data is stored in `data/products.json`, which serves as a mock database.  
-Each API route reads and writes to this JSON file for demo purposes.
+The app allows users to:
+- Browse products (SSG)
+- View product details with auto-regeneration (ISR)
+- View live inventory (SSR)
+- Manage products from an admin panel (CSR)
+- Add items to wishlist (Server Component + Client Interaction)
 
 ---
 
-## 🔐 Admin Access
+## 🚀 Features
 
-Admin routes (`POST`, `PUT`) are protected with a simple key-based check using `.env`:
+| Page | Route | Rendering Method | Description |
+|------|--------|------------------|--------------|
+| **Home Page** | `/` | **SSG (Static Site Generation)** | Built at build time using static JSON data. Includes client-side search/filter. |
+| **Product Details** | `/products/[slug]` | **ISR (Incremental Static Regeneration)** | Pre-generated product pages auto-update every 60s when data changes. |
+| **Inventory Dashboard** | `/dashboard` | **SSR (Server-Side Rendering)** | Fetches live data from JSON file every request. Displays low stock alerts. |
+| **Admin Panel** | `/admin` | **CSR (Client-Side Rendering)** | Allows adding and updating products using protected API routes. |
+| **Recommendations** | `/recommendations` | **Server Components + Client Action** | Server-rendered product suggestions with client “Add to Wishlist” button. |
 
-```env
-ADMIN_KEY=hi
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
+---
+
+## 🧩 API Routes
+
+| Endpoint | Method | Description | Protected |
+|-----------|--------|-------------|------------|
+| `/api/products` | **GET** | Fetch all products | ❌ |
+| `/api/products/[slug]` | **GET** | Fetch single product | ❌ |
+| `/api/products` | **POST** | Add new product | ✅ Uses `x-api-key` header |
+| `/api/products/update/[id]` | **PUT** | Update existing product | ✅ Uses `x-api-key` header |
+| `/api/wishlist/[id]` | **POST** | Add to wishlist (demo only) | ❌ |
+
+---
+
+## 🗂️ Data Model
+
+Each product is stored in **`data/products.json`** using this structure:
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "slug": "string",
+  "description": "string",
+  "price": 0,
+  "category": "string",
+  "inventory": 0,
+  "lastUpdated": "string (ISO datetime)"
+}

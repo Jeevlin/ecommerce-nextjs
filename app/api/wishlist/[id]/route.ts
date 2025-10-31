@@ -1,15 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  const { id } = params;
+export async function POST(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params; // ✅ Await params
 
-  // In a real app, you'd save this to DB or user session
-  console.log(`✅ Product ${id} added to wishlist`);
-
-  return NextResponse.json({
-    message: `Product ${id} added to wishlist successfully.`,
-  });
+  try {
+    // your wishlist logic here
+    return NextResponse.json({ message: `Wishlist updated for ${id}` });
+  } catch (error) {
+    return NextResponse.json({ message: "Error updating wishlist" }, { status: 500 });
+  }
 }
