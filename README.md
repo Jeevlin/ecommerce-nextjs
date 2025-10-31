@@ -5,6 +5,35 @@
 **Tech Stack:** Next.js (App Router), TypeScript, JSON data source, Tailwind CSS  
 
 ---
+# 🛒 E-Commerce App (Next.js)
+
+## 1️⃣ Run Instructions
+1. Clone the repository to your local system.  
+2. (or)Open the project  folder in VS Code or any code editor.  
+3. Run `npm install` to install all dependencies.  
+4. Start the development server with `npm run dev`.  
+5. Open `http://localhost:3000` in your browser to view the app.  
+
+---
+
+## 2️⃣ Rendering Strategy
+1. The homepage uses **Server-Side Rendering (SSR)** for fresh product data.  
+2. The dashboard uses **Client-Side Rendering (CSR)** for better interactivity.  
+3. Product detail pages use **Dynamic Routing** for each item.  
+4. Static content pages use **Static Site Generation (SSG)** for faster load.  
+5. This mix ensures good performance and user experience.  
+
+---
+
+## 3️⃣ Database Setup
+1. The app uses a local `data/products.json` file as a mock database.  
+2. JSON data is read and written using Node’s `fs` module (locally).  
+3. On Vercel, JSON updates don’t persist because it’s a read-only server.  
+4. To test updates, run the project locally in development mode.  
+5. Future improvement: connect to MongoDB or Firebase for real-time data.  
+
+---
+
 
 ## 📖 Overview
 
